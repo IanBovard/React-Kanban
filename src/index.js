@@ -1,18 +1,16 @@
 import './containers/App/styles.css';
 import React from 'react';
 import { render } from 'react-dom';
-import App from './containers/App/index.js';
-/*import { Provider } from 'react-redux';*/
+import App from './containers/App/index';
+import { Provider } from 'react-redux';
 
-/*import todoReducers from './reducers';*/
-/*import { createStore } from 'redux';
-let store = createStore(todoReducers);*/
+import cardAppReducers from './reducers';
+import { createStore } from 'redux';
+let store = createStore(cardAppReducers);
 
 render(
-/*  <Provider store={store}>*/
-  <div>
+  <Provider store={store}>
   <App />
-  </div>,
-/*  </Provider>,*/
+  </Provider>,
   document.getElementById('root')
   );
