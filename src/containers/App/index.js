@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import NewCardForm from '../../components/newCardForm'
 
-class App extends Component {
-  render() {
-    return (
-      <div>This works</div>
-      );
-    }
-  }
-
-  export default App;
+const App = () => (
+  <div>
+  <div className="newCardForm">
+  <NewCardForm />
+  </div>
+  </div>
+  )
+export default App;
