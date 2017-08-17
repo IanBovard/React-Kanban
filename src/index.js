@@ -4,9 +4,9 @@ import { render } from 'react-dom';
 import App from './containers/App/index';
 import { Provider } from 'react-redux';
 
-import cardAppReducers from './reducers';
+import taskReducers from './reducers';
 import { createStore } from 'redux';
-let store = createStore(cardAppReducers);
+let store = createStore(taskReducers);
 
 render(
   <Provider store={store}>

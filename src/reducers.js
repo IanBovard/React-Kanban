@@ -1,20 +1,19 @@
-import { ADD_CARD } from './actions';
+import { ADD_TASK } from './actions';
 
 let initialState = {
   tasks: []
 };
 
-const cardAppReducers = (state = initialState, action) => {
+const taskReducers = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_CARD:
-    return add(state, action);
+    case ADD_TASK:
+      return addTask(state, action);
     default:
     return state;
   }
 }
 
-function add(state, action) {
-  console.log('state',state);
+function addTask(state, action) {
   console.log('payload',action.payload);
   return {
     tasks:
@@ -32,4 +31,4 @@ function add(state, action) {
   }
 }
 
-export default cardAppReducers;
+export default taskReducers;
