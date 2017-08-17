@@ -1,8 +1,10 @@
-import ADD_CARD from './actions';
-let id = 0;
-let queue = false;
+import { ADD_CARD } from './actions';
 
-const cardAppReducers = (state = [], action) => {
+let initialState = {
+  tasks: []
+};
+
+const cardAppReducers = (state = initialState, action) => {
   switch (action.type) {
     case ADD_CARD:
     return add(state, action);
@@ -12,17 +14,22 @@ const cardAppReducers = (state = [], action) => {
 }
 
 function add(state, action) {
-  id = ++id;
-  return [
-  ...state,
-  {
-    id:id,
-    title: action.title,
-    createdBy: action.createdBy,
-    AssignedTo: action.AssignedTo,
-    status: queue
+  console.log('state',state);
+  console.log('payload',action.payload);
+  return {
+    tasks:
+    [
+    ...state.tasks,
+    {
+      id: action.payload.id,
+      title: action.payload.title,
+      priority: action.payload.priority,
+      createdBy:action.payload.createdBy,
+      assignedTo: action.payload.assignedTo,
+      status: action.payload.status
+    }
+    ]
   }
-  ]
 }
 
 export default cardAppReducers;

@@ -1,5 +1,11 @@
 export const ADD_CARD = 'ADD_CARD';
-export default function addCard(title, priority, createdBy, AssignedTo) {
-  return { type: ADD_CARD, title, priority, createdBy, AssignedTo};
+
+
+let id = 0;
+const STATUS = 'Queue'
+
+export const addCard = function(title='', priority='', createdBy='', assignedTo=''){
+  id++;
+  return { type: ADD_CARD, payload: { id, title, priority, createdBy, assignedTo, STATUS }};
 }
 

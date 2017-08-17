@@ -1,0 +1,17 @@
+.app-container {
+  display: flex; }
+
+.queue {
+  display: flex;
+  flex: 1;
+  background-color: lightpink; }
+
+.in-progress {
+  display: flex;
+  flex: 1;
+  background-color: lightblue; }
+
+.done {
+  display: flex;
+  flex: 1;
+  background-color: coral; }
