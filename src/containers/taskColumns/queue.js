@@ -6,20 +6,22 @@ import { toggleTask } from '../../actions';
 class QueueColumn extends Component {
   constructor(props) {
     super(props);
-  }
-  taskChange(id, status) {
-    this.props.onTaskChange(id, status);
-  }
 
+    this.state = {
+      status: 'InProgress'
+    }
+  }
   render() {
     return (
       <div>
-      {this.props.tasks.tasks.filter(queued => (
+        <div>
+        {this.props.tasks.tasks.filter(queued => (
         queued.status === 'Queue'
         )).map(task => (
-        <Tasks key={task.id}{...task} onChange={ () => this.taskChange(task.id, task.status)}/>
+        <Tasks key={task.id}{...task}/>
         ))}
         </div>
+      </div>
         )
   }
 }

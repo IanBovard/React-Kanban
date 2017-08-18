@@ -1,18 +1,14 @@
 import React from 'react';
+import ToggleTask from './toggleTaskPriority';
 
-const Tasks = ({title, priority, createdBy, assignedTo, status, taskChange}) => (
+const Tasks = ({id, title, priority, createdBy, assignedTo, status, taskChange}) => (
   <div className={status}>
     <div className="tasks">
       <h2>Task: {title}</h2>
       <h3>Priority: {priority}</h3>
       <small>Created By: {createdBy}</small><br />
       <small>Assigned To: {assignedTo}</small><br />
-      <select onChange={taskChange}>
-        <option disabled="disabled">Change Status of Task</option>
-        <option value="Queue">In Queue</option>
-        <option value="InProgress">In Progress</option>
-        <option value="Done">Done</option>
-      </select>
+      <ToggleTask id={id}/>
     </div>
   </div>
   )

@@ -7,16 +7,28 @@ let initialState = {
 const taskReducers = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TASK:
-      return addTask(state, action);
+    return addTask(state, action);
     case TOGGLE_TASK:
-      return state.tasks.map(task => {
-        console.log(action.payload)
-        console.log(state)
-        if (task.id === action.payload.id) {
-          task.status === action.payload.status
+    state.tasks.map(task => {
+      if (task.id === action.payload.id) {
+        task.status = action.payload.status
+      }
+      return {
+        tasks:
+        [
+        ...state.tasks,
+        {
+          id: task.id,
+          title: task.title,
+          priority: task.priority,
+          createdBy: task.createdBy,
+          assignedTo: task.assignedTo,
+          status: task.status
         }
-        return task;
-      })
+        ]
+      }
+    })
+
     default:
     return state;
   }
@@ -39,4 +51,25 @@ function addTask(state, action) {
   }
 }
 
+/*function toggleTask(state, action){
+  state.tasks.map(task => {
+    if (task.id === action.payload.id) {
+      task.status = action.payload.status
+    }
+      return {
+        tasks:
+        [
+        ...state.tasks,
+        {
+          id: task.id,
+          title: task.title,
+          priority: task.priority,
+          createdBy: task.createdBy,
+          assignedTo: task.assignedTo,
+          status: task.status
+        }
+        ]
+      }
+  })
+}*/
 export default taskReducers;
