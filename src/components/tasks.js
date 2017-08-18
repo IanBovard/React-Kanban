@@ -1,5 +1,5 @@
 import React from 'react';
-import ToggleTask from './toggleTaskPriority';
+import ToggleTask from './toggleTaskStatus';
 
 const Tasks = ({id, title, priority, createdBy, assignedTo, status, taskChange}) => (
   <div className={status}>
@@ -8,7 +8,7 @@ const Tasks = ({id, title, priority, createdBy, assignedTo, status, taskChange})
       <h3>Priority: {priority}</h3>
       <small>Created By: {createdBy}</small><br />
       <small>Assigned To: {assignedTo}</small><br />
-      <ToggleTask id={id}/>
+      <ToggleTask id={id} status={status}/>
     </div>
   </div>
   )

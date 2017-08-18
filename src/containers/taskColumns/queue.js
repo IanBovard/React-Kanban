@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Tasks from '../../components/tasks.js';
-import { toggleTask } from '../../actions';
 
 class QueueColumn extends Component {
   constructor(props) {
@@ -15,7 +14,7 @@ class QueueColumn extends Component {
     return (
       <div>
         <div>
-        {this.props.tasks.tasks.filter(queued => (
+        {this.props.tasks.filter(queued => (
         queued.status === 'Queue'
         )).map(task => (
         <Tasks key={task.id}{...task}/>
@@ -29,15 +28,13 @@ class QueueColumn extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    tasks: state
+    tasks: state.tasks
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onTaskChange: (id, status) => {
-      dispatch(toggleTask(id, status))
-    }
+    palceholder: {}
   }
 }
 

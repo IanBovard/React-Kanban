@@ -9,25 +9,12 @@ const taskReducers = (state = initialState, action) => {
     case ADD_TASK:
     return addTask(state, action);
     case TOGGLE_TASK:
-    state.tasks.map(task => {
+    return Object.assign({}, state, {tasks: state.tasks.map(task => {
       if (task.id === action.payload.id) {
         task.status = action.payload.status
       }
-      return {
-        tasks:
-        [
-        ...state.tasks,
-        {
-          id: task.id,
-          title: task.title,
-          priority: task.priority,
-          createdBy: task.createdBy,
-          assignedTo: task.assignedTo,
-          status: task.status
-        }
-        ]
-      }
-    })
+      return task
+    })})
 
     default:
     return state;

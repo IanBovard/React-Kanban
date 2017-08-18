@@ -13,7 +13,7 @@ class DoneColumn extends Component {
   render() {
     return (
       <div>
-      {this.props.tasks.tasks.filter(queued => (
+      {this.props.tasks.filter(queued => (
         queued.status === 'Done'
         )).map(task => (
         <Tasks key={task.id}{...task}/>
@@ -25,13 +25,13 @@ class DoneColumn extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    tasks: state
+    tasks: state.tasks
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onTaskClick: []
+    placehodler: {}
   }
 }
 

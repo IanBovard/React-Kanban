@@ -9,16 +9,17 @@ class ToggleTask extends Component {
     super(props);
     this.state = {
       id: this.props.id,
+      status: this.props.status
     }
   }
   handleTaskToggle(e){
-    this.props.toggleTaskPriority(this.state.id, e.target.value)
+    this.props.toggleTaskStatus(this.state.id, e.target.value)
   }
   render(){
     return(
       <div>
-      <select onChange={this.handleTaskToggle.bind(this)}>
-      <option disabled="disabled">Change Status of Task</option>
+      <select value={this.state.status} onChange={this.handleTaskToggle.bind(this)}>
+      <option disabled="disabled">Change Status</option>
       <option value="Queue">In Queue</option>
       <option value="InProgress">In Progress</option>
       <option value="Done">Done</option>
@@ -33,7 +34,7 @@ const mapStateToProps = () => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleTaskPriority: (id, status) => {
+    toggleTaskStatus: (id, status) => {
       dispatch(toggleTask(id, status))
     }
   }
