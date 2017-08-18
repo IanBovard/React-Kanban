@@ -7,8 +7,19 @@ class QueueColumn extends Component {
     super(props);
 
     this.state = {
-      status: 'InProgress'
+      status: 'Queue'
     }
+  }
+  fetchTasks(url) {
+    fetch(url)
+      .then(tasks => tasks.json())
+      .then(tasks => {
+        console.log('response',tasks);
+        return tasks.json;
+      });
+  }
+  componentDidMount(){
+    this.fetchTasks('/api/tasks');
   }
   render() {
     return (

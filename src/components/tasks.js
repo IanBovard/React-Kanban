@@ -1,7 +1,7 @@
 import React from 'react';
 import ToggleTask from './toggleTaskStatus';
 
-const Tasks = ({id, title, priority, createdBy, assignedTo, status, taskChange}) => (
+const Tasks = ({id, title, priority, createdBy, assignedTo, status}) => (
   <div className={priority}>
     <div className="tasks">
       <p>Task: {title}</p>

@@ -1,11 +1,13 @@
-import { ADD_TASK } from './actions';
-import { TOGGLE_TASK } from './actions';
+import { ADD_TASK, TOGGLE_TASK, GET_TASK } from './actions';
+
 let initialState = {
   tasks: []
 };
 
 const taskReducers = (state = initialState, action) => {
   switch (action.type) {
+    case GET_TASK:
+    return getTask(state, action);
     case ADD_TASK:
     return addTask(state, action);
     case TOGGLE_TASK:
@@ -37,6 +39,12 @@ function addTask(state, action) {
     ]
   }
 }
+
+function getTask(state, action){
+  return action.payload
+}
+
+
 
 /*function toggleTask(state, action){
   state.tasks.map(task => {
