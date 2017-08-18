@@ -18,7 +18,7 @@ const App = () => (
         <h2>In Progress</h2>
         <InProgressColumn />
       </div>
-      <div className="doneColumns">
+      <div className="doneColumn">
         <h2>Done</h2>
         <DoneColumn />
       </div>

@@ -1,0 +1,27 @@
+/* classes
+app-container
+newTaskForm
+taskColumns
+queueColumn
+inProgressColumn
+doneColumn
+tasks
+Low
+Medium
+High
+Blocker */
+.taskColumns {
+  display: flex;
+  flex-direction: row; }
+
+.queueColumn {
+  flex: 1; }
+
+.inProgressColumn {
+  flex: 1; }
+
+.doneColumn {
+  flex: 1; }
+
+.tasks {
+  border: 1px solid black; }
