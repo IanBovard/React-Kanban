@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Tasks from '../../components/tasks.js';
+import { toggleTask } from '../../actions';
 
 class QueueColumn extends Component {
+  constructor(props) {
+    super(props);
+  }
+  taskChange(id, status) {
+    this.props.onTaskChange(id, status);
+  }
+
   render() {
     return (
       <div>
       {this.props.tasks.tasks.filter(queued => (
         queued.status === 'Queue'
         )).map(task => (
-        <Tasks key={task.id}{...task}/>
+        <Tasks key={task.id}{...task} onChange={ () => this.taskChange(task.id, task.status)}/>
         ))}
-      </div>
-      )
+        </div>
+        )
   }
 }
 
@@ -25,7 +33,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onTaskClick: []
+    onTaskChange: (id, status) => {
+      dispatch(toggleTask(id, status))
+    }
   }
 }
 
@@ -35,5 +45,3 @@ QueueColumn = connect(
   )(QueueColumn)
 
   export default QueueColumn
-
-/*   {this.props.cards.tasks.map(card => (<Cards key={card.id}{...card}/>))}*/

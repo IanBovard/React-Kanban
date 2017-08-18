@@ -3,6 +3,13 @@ import { connect } from 'react-redux';
 import Tasks from '../../components/tasks.js';
 
 class InProgressColumn extends Component {
+    constructor(props) {
+    super(props);
+
+    this.state = {
+      status: 'InProgress'
+    }
+  }
   render() {
     return (
       <div>
@@ -35,5 +42,3 @@ InProgressColumn = connect(
   )(InProgressColumn)
 
   export default InProgressColumn
-
-/*   {this.props.cards.tasks.map(card => (<Cards key={card.id}{...card}/>))}*/

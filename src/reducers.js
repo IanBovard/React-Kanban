@@ -1,5 +1,5 @@
 import { ADD_TASK } from './actions';
-
+import { TOGGLE_TASK } from './actions';
 let initialState = {
   tasks: []
 };
@@ -8,13 +8,21 @@ const taskReducers = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TASK:
       return addTask(state, action);
+    case TOGGLE_TASK:
+      return state.tasks.map(task => {
+        console.log(action.payload)
+        console.log(state)
+        if (task.id === action.payload.id) {
+          task.status === action.payload.status
+        }
+        return task;
+      })
     default:
     return state;
   }
 }
 
 function addTask(state, action) {
-  console.log('payload',action.payload);
   return {
     tasks:
     [

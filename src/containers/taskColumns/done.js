@@ -3,6 +3,13 @@ import { connect } from 'react-redux';
 import Tasks from '../../components/tasks.js';
 
 class DoneColumn extends Component {
+    constructor(props) {
+    super(props);
+
+    this.state = {
+      status: 'Done'
+    }
+  }
   render() {
     return (
       <div>
@@ -15,7 +22,6 @@ class DoneColumn extends Component {
       )
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {
@@ -35,5 +41,3 @@ DoneColumn = connect(
   )(DoneColumn)
 
   export default DoneColumn
-
-/*   {this.props.cards.tasks.map(card => (<Cards key={card.id}{...card}/>))}*/
