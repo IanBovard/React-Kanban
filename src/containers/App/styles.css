@@ -1,17 +1,27 @@
-.app-container {
-  display: flex; }
-
-.queue {
+/* classes
+app-container
+newTaskForm
+taskColumns
+queueColumn
+inProgressColumn
+doneColumn
+tasks
+Low
+Medium
+High
+Blocker */
+.taskColumns {
   display: flex;
-  flex: 1;
-  background-color: lightpink; }
+  flex-direction: row; }
 
-.in-progress {
-  display: flex;
-  flex: 1;
-  background-color: lightblue; }
+.queueColumn {
+  flex: 1; }
 
-.done {
-  display: flex;
-  flex: 1;
-  background-color: coral; }
+.inProgressColumn {
+  flex: 1; }
+
+.doneColumn {
+  flex: 1; }
+
+.tasks {
+  border: 1px solid black; }
